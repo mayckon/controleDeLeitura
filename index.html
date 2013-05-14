@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html manifest="offlinedatabase.manifest">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Controle de Leitura</title>
+		<link rel="stylesheet" href="themes/tema.min.css" />
+		<link rel="stylesheet" href="jquery.mobile.structure-1.3.1.min.css" />
+		<script src="jquery-1.9.1.min.js"></script>
+		<script src="jquery.mobile-1.3.1.min.js"></script>
+		<script type="text/javascript" src="offlinedatabaseJS.js" ></script>
+	</head>
+	<body onload="onInit()">
+		<div data-role="page" data-theme="a" id='lista'>
+			<div data-role="header" data-position="inline">
+				<h1>LIVROS CADASTRADOS</h1>
+			</div>
+			
+			<div data-role="content" data-theme="a">
+				<div class="status" style='clear:both;margin-bottom:20px;'></div>
+				<ul  id="itemData" data-role="listview" data-autodividers="true" data-filter="true" data-inset="true">
+				</ul>
+				
+				<a href="#novo" data-theme="a" data-role="button" data-transition='slide'>Novo </a>
+			</div>
+		</div>
+		<div data-role="page" data-theme="a" id='novo'>
+			<div data-role="header" data-position="inline">
+				<h1>Novo/atualizar</h1>
+			</div>
+			
+			<div data-role="content" data-theme="a">
+				<div class="status"></div>
+				<h3>Detalhes:</h3>
+				  <form name="itemForm">
+					<input type="hidden" name="id" id="id" size=2 disabled="true"/>
+					<label for="nome">Livro:</label><input type="text" name="nome" id="nome" size=10/>
+					<label for="pagina">Pagina</label><input type="text" name="pagina" id="pagina" size=3 /> de <input type="text" name="total" id="total" size=3 /> <br>
+					<br>
+					<input type="button" name="salvar" value="Salvar" onclick="onSalvar()" data-theme="b"/>
+					<a href="#listar" data-theme="a" data-role="button" data-transition='slide' data-rel='back'>Cancelar</a>
+					<input type="button" name="deletar" value="Deletar" onclick="onDelete()" data-theme="c"/>
+				  </form>
+							  
+				  
+			</div>
+		</div>
+	</body>
+</html>
